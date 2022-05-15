@@ -8,24 +8,19 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="app-container">
+    <div class="app-container" id="appContainer">
         <img src="./assets/logo.png" class="logo" alt="password-gerenator">
         <div class="input">
             <p>Definir o tamanho maximo</p>
             <input type="range" class="slider" id="slider" min="4" max="25" value="8">
-            <p><span id="value"></span> Caracteres</p>
-            <button>Gerar Senha</button>
+            <p>Senha com <span id="passwordSize"></span> Caracteres</p>
+            <button id="btnGeneratePassword">Gerar Senha</button>
             <hr>
         </div>
-        <div class="output">
-            <p>A senha gerada foi</p>
-            <div class="result">
-                Senha Gerada!
-            </div>
-            <span>👆 Click na senha para copiar 👆</span>
+        <div class="output" id="passwordContainer">
+            <!-- For generated password -->
         </div>
     </div>
-
 
     <script src="./app.js"></script>
 </body>
