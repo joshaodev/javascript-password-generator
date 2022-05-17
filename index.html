@@ -9,15 +9,15 @@
 </head>
 <body>
     <div class="app-container" id="appContainer">
-        <img src="./assets/logo.png" class="logo" alt="password-gerenator">
-        <div class="input">
+        <img src="./Assets/logo.png" class="logo" alt="password-gerenator">
+        <div class="input-container">
             <p>Definir o tamanho maximo</p>
             <input type="range" class="slider" id="slider" min="4" max="25" value="8">
-            <p>Senha com <span id="passwordSize"></span> Caracteres</p>
+            <p>Senha com <span id="labelPasswordSize"></span> Caracteres</p>
             <button id="btnGeneratePassword">Gerar Senha</button>
             <hr>
         </div>
-        <div class="output" id="passwordContainer">
+        <div class="output-container" id="outputContainer">
             <!-- For generated password -->
         </div>
     </div>

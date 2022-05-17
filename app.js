@@ -1,20 +1,19 @@
 
-
-const createPassword = (password) => {
+const createPasswordContainer = (password) => {
     const passwordContainer = document.createElement('div');
-    passwordContainer.classList.add('output');
+    passwordContainer.classList.add('output-container');
     passwordContainer.innerHTML = `
         <p>A senha gerada foi</p>
-        <div class="result" id="password">
+        <div class="password" id="password">
             ${password}
         </div>
-        <span class="tooltip">👆 Click na senha para copiar 👆</span>
+        <span class="tooltip">👆 Click acima para copiar a senha 👆</span>
     `
-    document.getElementById('passwordContainer').appendChild(passwordContainer);
+    document.getElementById('outputContainer').appendChild(passwordContainer);
 }
 
 const cleanScreen = () => {
-    const passwordContainer = document.getElementById('passwordContainer');
+    const passwordContainer = document.getElementById('outputContainer');
     while (passwordContainer.firstChild) {
         passwordContainer.removeChild(passwordContainer.lastChild);
     }
@@ -25,37 +24,39 @@ const generatePassword = () => {
     const numCharset = charset.length;
     const passwordMaxLenght = document.getElementById('slider').value;
     let password = '';
-    for (let index = 0 ; index < passwordMaxLenght; index++) {
+    for (let index = 0; index < passwordMaxLenght; index++) {
         password += charset.charAt(Math.floor(Math.random() * numCharset));
     }
-    return password
+    return password;
 }
 
 let newPassword = '';
 const renderPassword = () => {
     cleanScreen();
-    generatePassword()
     const password = generatePassword();
+    createPasswordContainer(password);
     newPassword = password;
-    createPassword(password);
 }
 
 const copyPassword = () => {
-    alert('Senha Copiada!')
-    navigator.clipboard.writeText(newPassword);
+    navigator.clipboard.writeText(newPassword).then(() =>{
+        alert('Senha Copiada!');
+    }).catch( err => {
+        console.log('Ocorreu um erro: '+err);
+    })   
 }
 
 /* Actualiza o label de acordo a mudanca do slider */
 
 slider = document.getElementById('slider');
-passwordSize = document.getElementById('passwordSize');
-passwordSize.innerHTML= slider.value;
+labelPasswordSize = document.getElementById('labelPasswordSize');
+labelPasswordSize.innerHTML = slider.value;
 
 slider.oninput = function () {
-    passwordSize.innerHTML = this.value
+    labelPasswordSize.innerHTML = this.value
 }
 
 /* ========================================================= */
 
 document.getElementById('btnGeneratePassword').addEventListener('click', renderPassword);
-document.getElementById('passwordContainer').addEventListener('click', copyPassword);
+document.getElementById('outputContainer').addEventListener('click', copyPassword);

@@ -7,7 +7,7 @@
 body {
     background-color: #222222;
     color: white;
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 1.3rem;
 }
 
@@ -18,6 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-transform: uppercase;
 }
 
 .app-container .logo {
@@ -25,7 +26,7 @@ body {
     height: 40px;
 }
 
-.app-container .input {
+.app-container .input-container {
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -34,29 +35,27 @@ body {
     user-select: none;
 }
 
-.app-container .input p {
-    text-transform: uppercase;
-}
-
-.app-container .input .slider {
+.app-container .input-container .slider {
+    -webkit-appearance: none;
     width: 100%;
+    height: 10px;
     margin: 5px 0;
-    appearance: none;
     border-radius: 50px;
 }
 
-.app-container .input button {
+.app-container .input-container button {
     width: 100%;
     background-color: #0860d4;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 1.4rem;
+    text-transform: none;
     padding: 10px;
     margin-top: 35px;
 }
 
-.app-container .input button:hover {
+.app-container .input-container button:hover {
     cursor: pointer;
 }
 
@@ -66,39 +65,37 @@ body {
     border: 1px dashed #444444;
 }
 
-.app-container .output {
+.app-container .output-container {
     width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.app-container .output p {
-    text-transform: uppercase;
-}
-
-.app-container .output .result {
+.app-container .output-container .password {
     width: 100%;
     background-color: #111111;
     border: 2px solid #444444;
     border-radius: 10px;
     padding: 15px;
     margin-top: 10px;
+    text-transform: none;
     text-align: center;
     transition: transform 0.5s;
 }
 
-.app-container .output .result:hover {
+.app-container .output-container .password:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
 
 .tooltip {
+    text-transform: none;
     margin-top: 5px;
     visibility: hidden;
 }
 
-.app-container .output:hover .tooltip {
+.app-container .output-container:hover .tooltip {
     visibility: visible;
 }
 
